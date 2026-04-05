@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="32"
+   height="32"
+   viewBox="0 0 32 32"
+   version="1.1"
+   id="svg1"
+   xml:space="preserve"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><defs
+     id="defs1"><linearGradient
+       id="linearGradient1"><stop
+         style="stop-color:#1565c0;stop-opacity:1;"
+         offset="0"
+         id="stop1" /><stop
+         style="stop-color:#1976d2;stop-opacity:1;"
+         offset="1"
+         id="stop2" /></linearGradient><linearGradient
+       xlink:href="#linearGradient1"
+       id="linearGradient2"
+       x1="19.070412"
+       y1="7.5641208"
+       x2="12.929593"
+       y2="24.435881"
+       gradientUnits="userSpaceOnUse" /></defs><g
+     id="layer1"><rect
+       style="display:inline;fill:#0d47a1;fill-opacity:1;stroke:none;stroke-width:0.968324;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+       id="rect2"
+       width="32"
+       height="32"
+       x="0"
+       y="0"
+       ry="8.3690443"
+       rx="8.1624012" /><path
+       d="m 16.000001,28 c -4.818183,0 -8.7272733,-3.909092 -8.7272733,-8.727273 0,-4.145455 5.9181813,-12.4590902 7.5727273,-14.7045452 0.268181,-0.363636 0.690909,-0.568182 1.145455,-0.568182 h 0.01818 c 0.454546,0 0.877273,0.204546 1.145455,0.568182 1.654546,2.245455 7.572727,10.5590902 7.572727,14.7045452 C 24.727272,24.090908 20.818181,28 15.999999,28 Z"
+       id="path1"
+       style="fill:url(#linearGradient2);fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-dasharray:none;stroke-opacity:1" /><text
+       xml:space="preserve"
+       style="font-size:13.3333px;font-family:'Mona Sans';-inkscape-font-specification:'Mona Sans';writing-mode:lr-tb;direction:ltr;fill:#000000;stroke:#000000;stroke-width:0.1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+       x="9.3266869"
+       y="23.073296"
+       id="text1"><tspan
+         id="tspan1"
+         x="9.3266869"
+         y="23.073296"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.3333px;font-family:'Noto Sans JP';-inkscape-font-specification:'Noto Sans JP';stroke:#000000;stroke-width:0.1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:normal">水</tspan></text></g></svg>
