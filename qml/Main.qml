@@ -1,8 +1,15 @@
 import QtQuick
+import QtQuick.Controls
+import QtQuick.Controls.Material
+import QtQuick.Layouts
 
-Window {
-    width: 640
-    height: 480
-    visible: true
-    title: qsTr("Hello World")
+ApplicationWindow {
+	id: root
+	width: 540
+	height: 960
+	visible: true
+	title: `${AppName}`
+
+	Material.theme: Material.System
+	Material.accent: "#1E88E5"
 }

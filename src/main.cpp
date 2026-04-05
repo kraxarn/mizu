@@ -1,18 +1,49 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
+#include <QQmlContext>
+#include <QQuickStyle>
 
-int main(int argc, char *argv[])
+namespace
 {
-    QGuiApplication app(argc, argv);
+	void defineTypes(const QQmlApplicationEngine &engine)
+	{
+		engine.rootContext()->setContextProperty(QStringLiteral("AppName"),
+			QCoreApplication::applicationName());
 
-    QQmlApplicationEngine engine;
-    QObject::connect(
-        &engine,
-        &QQmlApplicationEngine::objectCreationFailed,
-        &app,
-        []() { QCoreApplication::exit(-1); },
-        Qt::QueuedConnection);
-    engine.loadFromModule("mizu", "Main");
+		engine.rootContext()->setContextProperty(QStringLiteral("AppVersion"),
+			QCoreApplication::applicationVersion());
 
-    return QCoreApplication::exec();
+		engine.rootContext()->setContextProperty(QStringLiteral("QtVersion"),
+			QStringLiteral(QT_VERSION_STR));
+
+		engine.rootContext()->setContextProperty(QStringLiteral("BuildDate"),
+			QStringLiteral(__DATE__));
+	}
+}
+
+auto main(int argc, char **argv) -> int
+{
+	QCoreApplication::setApplicationName(QStringLiteral(APP_NAME));
+	QCoreApplication::setApplicationVersion(QStringLiteral(APP_VERSION));
+	QCoreApplication::setOrganizationName(QStringLiteral(ORG_NAME));
+	QCoreApplication::setOrganizationDomain(QStringLiteral(ORG_DOMAIN));
+
+	const QGuiApplication app(argc, argv);
+
+	QQmlApplicationEngine engine;
+	defineTypes(engine);
+
+	// TODO: For now at least, mostly designed as a mobile app anyway
+	QQuickStyle::setStyle(QStringLiteral("Material"));
+
+	QObject::connect(&engine, &QQmlApplicationEngine::objectCreationFailed,
+		&app, [](const QUrl &url) -> void
+		{
+			qCritical() << "Failed to load:" << url.toString();
+			QCoreApplication::exit(-1);
+		}, Qt::QueuedConnection);
+
+	engine.load(QStringLiteral(":/qml/Main.qml"));
+
+	return QCoreApplication::exec();
 }
