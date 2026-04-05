@@ -12,4 +12,12 @@ ApplicationWindow {
 
 	Material.theme: Material.System
 	Material.accent: "#1E88E5"
+
+	footer: Footer {
+	}
+
+	StackView {
+		id: content
+		anchors.fill: parent
+	}
 }

@@ -22,6 +22,8 @@ qt_add_executable(${APP_NAME})
 
 add_subdirectory(src)
 
+include(deps/font-awesome.cmake)
+
 include(qml.cmake)
 
 target_include_directories(${APP_NAME} PRIVATE
