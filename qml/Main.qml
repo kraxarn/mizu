@@ -16,8 +16,18 @@ ApplicationWindow {
 	footer: Footer {
 	}
 
-	StackView {
+	StackLayout {
 		id: content
+		currentIndex: footer.currentIndex
 		anchors.fill: parent
+
+		Home {
+		}
+
+		History {
+		}
+
+		Settings {
+		}
 	}
 }

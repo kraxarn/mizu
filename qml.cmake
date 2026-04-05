@@ -10,7 +10,10 @@ qt_add_qml_module(${APP_NAME}
 
 	QML_FILES
 	qml/Footer.qml
+	qml/History.qml
+	qml/Home.qml
 	qml/Main.qml
+	qml/Settings.qml
 )
 
 set(FA_DIR "${font-awesome_SOURCE_DIR}/svgs")
