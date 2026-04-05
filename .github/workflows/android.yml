@@ -64,4 +64,5 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           name: mizu-android-arm64-v8a
+          archive: false
           path: build/android-build/**/*-signed.apk
