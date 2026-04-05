@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=mizu
+GenericName=Mizu
+Comment=Water tracker
+Icon=mizu
+Exec=mizu
+Terminal=false
+Categories=Utility;
