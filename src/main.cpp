@@ -3,6 +3,10 @@
 #include <QQmlContext>
 #include <QQuickStyle>
 
+#include "settings.hpp"
+
+#define registerType(t) qmlRegisterType<t>(#t,1,0,#t)
+
 namespace
 {
 	void defineTypes(const QQmlApplicationEngine &engine)
@@ -18,6 +22,8 @@ namespace
 
 		engine.rootContext()->setContextProperty(QStringLiteral("BuildDate"),
 			QStringLiteral(__DATE__));
+
+		registerType(Settings);
 	}
 }
 

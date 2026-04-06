@@ -21,13 +21,13 @@ ApplicationWindow {
 		currentIndex: footer.currentIndex
 		anchors.fill: parent
 
-		Home {
+		HomePage{
 		}
 
-		History {
+		HistoryPage {
 		}
 
-		Settings {
+		SettingsPage {
 		}
 	}
 }

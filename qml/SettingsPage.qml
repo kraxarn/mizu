@@ -122,19 +122,19 @@ ColumnLayout {
 
 		Component {
 			id: dailyGoal
-			DailyGoal {
+			DailyGoalView {
 			}
 		}
 
 		Component {
 			id: drinkTypes
-			DrinkTypes {
+			DrinkTypesView {
 			}
 		}
 
 		Component {
 			id: presets
-			Presets {
+			PresetsView {
 			}
 		}
 	}
