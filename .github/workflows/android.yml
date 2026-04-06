@@ -45,6 +45,20 @@ jobs:
           arch: ${{env.QT_ARCH}}
           target: ${{env.QT_TARGET}}
 
+      - name: Clean up unused files
+        working-directory: ${{runner.workspace}}/Qt/${{env.QT_VERSION}}/${{env.QT_ARCH}}
+        run: |
+          find lib -name 'libQt6Gui*.so' -exec rm {} \;
+          find lib -name 'libQt6Network*.so' -exec rm {} \;
+          find lib -iname '*FluentWinUI3Style*.cmake' -exec rm {} \;
+          find lib -iname '*FusionStyle*.cmake' -exec rm {} \;
+          find lib -iname '*ImagineStyle*.cmake' -exec rm {} \;
+          find lib -iname '*UniversalStyle*.cmake' -exec rm {} \;
+          find qml -name 'libqml_*_FluentWinUI3_*.so' -exec rm {} \;
+          find qml -name 'libqml_*_Fusion_*.so' -exec rm {} \;
+          find qml -name 'libqml_*_Imagine_*.so' -exec rm {} \;
+          find qml -name 'libqml_*_Universal_*.so' -exec rm {} \;
+
       - name: Configure CMake
         env:
           QT_HOST_PATH: ${{runner.workspace}}/Qt/${{env.QT_VERSION}}/gcc_64
