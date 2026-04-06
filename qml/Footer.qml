@@ -6,6 +6,7 @@ import QtQuick.Layouts
 TabBar {
 	id: tabs
 	width: parent.width
+	bottomPadding: root.SafeArea.margins.bottom
 
 	TabButton {
 		text: "Today"
