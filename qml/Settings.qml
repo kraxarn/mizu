@@ -15,9 +15,9 @@ ColumnLayout {
 		ToolButton {
 			id: back
 			padding: parent.height * 0.3
-			onClicked: settings.pop()
 			visible: settings.depth > 1
 			width: settings.depth > 1 ? undefined : 16
+			onClicked: settings.pop()
 			anchors {
 				left: parent.left
 				top: parent.top
