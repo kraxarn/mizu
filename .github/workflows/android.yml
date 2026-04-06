@@ -56,6 +56,9 @@ jobs:
           find qml -name 'libqml_*_Fusion_*.so' -exec rm {} \;
           find qml -name 'libqml_*_Imagine_*.so' -exec rm {} \;
           find qml -name 'libqml_*_Universal_*.so' -exec rm {} \;
+          find plugins -name '*imageformats_qgif*.so' -exec rm {} \;
+          find plugins -name '*imageformats_qico*.so' -exec rm {} \;
+          find plugins -name '*imageformats_qjpeg*.so' -exec rm {} \;
 
       - name: Configure CMake
         env:
