@@ -55,6 +55,7 @@ jobs:
           find plugins -name '*qmltooling_qmldbg*.so' -exec rm {} \;
           find plugins -name '*imageformats_qico*.so' -exec rm {} \;
           find plugins -name '*imageformats_qjpeg*.so' -exec rm {} \;
+          find plugins -name '*tls_qopensslbackend*.so' -exec rm {} \;
           find qml -name 'libqml_*_FluentWinUI3_*.so' -exec rm {} \;
           find qml -name 'libqml_*_Fusion_*.so' -exec rm {} \;
           find qml -name 'libqml_*_Imagine_*.so' -exec rm {} \;
