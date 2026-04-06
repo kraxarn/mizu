@@ -14,6 +14,7 @@ find_package(Qt6 REQUIRED COMPONENTS
 	Core
 	Quick
 	QuickControls2
+	Sql
 )
 
 qt_standard_project_setup(REQUIRES 6.10)
@@ -77,6 +78,7 @@ target_link_libraries(${APP_NAME} PRIVATE
 	Qt6::Core
 	Qt6::Quick
 	Qt6::QuickControls2
+	Qt6::Sql
 )
 
 include(GNUInstallDirs)
