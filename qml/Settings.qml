@@ -52,6 +52,13 @@ ColumnLayout {
 		Layout.fillHeight: true
 		Layout.fillWidth: true
 
+		Keys.onPressed: {
+			if (event.key === Qt.Key_Back && settings.depth > 1) {
+				event.accepted = true
+				settings.pop()
+			}
+		}
+
 		Component {
 			id: main
 
