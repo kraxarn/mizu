@@ -9,10 +9,14 @@ qt_add_qml_module(${APP_NAME}
 	NO_RESOURCE_TARGET_PATH
 
 	QML_FILES
+	qml/DailyGoal.qml
+	qml/DrinkTypes.qml
 	qml/Footer.qml
 	qml/History.qml
 	qml/Home.qml
+	qml/Icon.qml
 	qml/Main.qml
+	qml/Presets.qml
 	qml/Settings.qml
 )
 
@@ -26,7 +30,12 @@ qt_add_resources(${APP_NAME} MDI
 	"${FA_DIR}/regular/calendar.svg"
 	"${FA_DIR}/regular/house.svg"
 	"${FA_DIR}/regular/rectangle-list.svg"
+	"${FA_DIR}/solid/bottle-droplet.svg"
+	"${FA_DIR}/solid/calendar-day.svg"
 	"${FA_DIR}/solid/calendar.svg"
+	"${FA_DIR}/solid/chevron-left.svg"
+	"${FA_DIR}/solid/chevron-right.svg"
 	"${FA_DIR}/solid/house.svg"
+	"${FA_DIR}/solid/list.svg"
 	"${FA_DIR}/solid/rectangle-list.svg"
 )
