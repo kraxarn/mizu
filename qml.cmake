@@ -9,15 +9,15 @@ qt_add_qml_module(${APP_NAME}
 	NO_RESOURCE_TARGET_PATH
 
 	QML_FILES
-	qml/DailyGoal.qml
-	qml/DrinkTypes.qml
+	qml/DailyGoalView.qml
+	qml/DrinkTypesView.qml
 	qml/Footer.qml
-	qml/History.qml
-	qml/Home.qml
+	qml/HistoryPage.qml
+	qml/HomePage.qml
 	qml/Icon.qml
 	qml/Main.qml
-	qml/Presets.qml
-	qml/Settings.qml
+	qml/PresetsView.qml
+	qml/SettingsPage.qml
 )
 
 set(FA_DIR "${font-awesome_SOURCE_DIR}/svgs")
