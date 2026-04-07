@@ -3,6 +3,7 @@
 #include <QQmlContext>
 #include <QQuickStyle>
 
+#include "database.hpp"
 #include "settings.hpp"
 
 #define registerType(t) qmlRegisterType<t>(#t,1,0,#t)
@@ -24,6 +25,7 @@ namespace
 			QStringLiteral(__DATE__));
 
 		registerType(Settings);
+		registerType(Database);
 	}
 }
 

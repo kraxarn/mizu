@@ -18,6 +18,10 @@ qt_add_qml_module(${APP_NAME}
 	qml/Main.qml
 	qml/PresetsView.qml
 	qml/SettingsPage.qml
+
+	RESOURCES
+	sql/drink_types.sql
+	sql/presets.sql
 )
 
 set(FA_DIR "${font-awesome_SOURCE_DIR}/svgs")
