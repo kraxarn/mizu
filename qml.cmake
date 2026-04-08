@@ -20,8 +20,9 @@ qt_add_qml_module(${APP_NAME}
 	qml/SettingsPage.qml
 
 	RESOURCES
-	sql/drink_types.sql
-	sql/presets.sql
+	sql/drink_types_create.sql
+	sql/drink_types_insert.sql
+	sql/presets_create.sql
 )
 
 set(FA_DIR "${font-awesome_SOURCE_DIR}/svgs")
@@ -34,6 +35,7 @@ qt_add_resources(${APP_NAME} MDI
 	"${FA_DIR}/regular/calendar.svg"
 	"${FA_DIR}/regular/house.svg"
 	"${FA_DIR}/regular/rectangle-list.svg"
+	"${FA_DIR}/solid/add.svg"
 	"${FA_DIR}/solid/bottle-droplet.svg"
 	"${FA_DIR}/solid/calendar-day.svg"
 	"${FA_DIR}/solid/calendar.svg"

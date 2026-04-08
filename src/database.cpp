@@ -34,31 +34,55 @@ Database::~Database()
 	mDb.close();
 }
 
-auto Database::initDb() const -> bool
+auto Database::insertDrinkType() const -> bool
 {
-	const std::array scripts = {
-		QStringLiteral(":/sql/drink_types.sql"),
-		QStringLiteral(":/sql/presets.sql"),
+	const QMap<QString, QVariant> values = {
+		{QStringLiteral(":icon"), QStringLiteral("glass-water")},
+		{QStringLiteral(":name"), QStringLiteral("Water")},
+		{QStringLiteral(":impact"), 1.F},
 	};
 
-	for (const QString &script: scripts)
+	return exec(QStringLiteral(":/sql/drink_types_insert.sql"), values);
+}
+
+auto Database::exec(const QString &path, const QMap<QString, QVariant> &values) const -> bool
+{
+	QFile file(path);
+	if (!file.open(QIODevice::ReadOnly))
 	{
-		QFile file(script);
-		if (!file.open(QIODevice::ReadOnly))
-		{
-			qWarning() << "Failed to open init script:" << file.errorString();
-			return false;
-		}
+		qWarning() << "Failed to open query:" << file.errorString();
+		return false;
+	}
 
-		const QString content = QString::fromUtf8(file.readAll());
-		file.close();
+	const QString content = QString::fromUtf8(file.readAll());
+	file.close();
 
-		if (QSqlQuery query(mDb); !query.exec(content))
-		{
-			qWarning() << "Failed to execute init script:" << query.lastError().text();
-			return false;
-		}
+	QSqlQuery query(mDb);
+
+	if (!query.prepare(content))
+	{
+		qWarning() << "Failed to prepare query:" << query.lastError().text();
+		return false;
+	}
+
+	QMapIterator iter(values);
+	while (iter.hasNext())
+	{
+		iter.next();
+		query.bindValue(iter.key(), iter.value());
+	}
+
+	if (!query.exec())
+	{
+		qWarning() << "Failed to execute query:" << query.lastError().text();
+		return false;
 	}
 
 	return true;
+}
+
+auto Database::initDb() const -> bool
+{
+	return exec(QStringLiteral(":/sql/drink_types_create.sql"))
+		&& exec(QStringLiteral(":/sql/presets_create.sql"));
 }
