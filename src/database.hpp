@@ -24,6 +24,8 @@ public:
 
 	Q_INVOKABLE bool deleteDrinkType(int rowId) const;
 
+	Q_INVOKABLE bool setDrinkTypeIcon(int rowId, const QString &icon) const;
+
 private:
 	QSqlDatabase mDb;
 

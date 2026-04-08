@@ -21,6 +21,8 @@ Item {
 		x: (parent.width - width) / 2
 		y: (parent.height / 2) - (height / 2)
 
+		property var rowId: 0
+
 		ListView {
 			anchors.fill: parent
 			model: ["bottle-water", "glass-water", "jar", "mug-hot", "mug-saucer", "whiskey-glass", "wine-glass"]
@@ -28,6 +30,10 @@ Item {
 				width: parent.width
 				text: modelData
 				icon.source: `qrc:/fa/solid/${modelData}.svg`
+				onClicked: {
+					db.setDrinkTypeIcon(iconDialog.rowId, modelData)
+					iconDialog.accept()
+				}
 			}
 		}
 	}
@@ -51,7 +57,10 @@ Item {
 				}
 				flat: true
 				icon.source: `qrc:/fa/solid/${parent.iconName}.svg`
-				onClicked: iconDialog.open()
+				onClicked: {
+					iconDialog.rowId = parent.rowId
+					iconDialog.open()
+				}
 			}
 
 			Label {

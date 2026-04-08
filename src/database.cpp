@@ -66,6 +66,19 @@ bool Database::deleteDrinkType(int rowId) const
 	return exec(QStringLiteral(":/sql/drink_types_delete.sql"), values);
 }
 
+auto Database::setDrinkTypeIcon(const int rowId, const QString &icon) const -> bool
+{
+	QSqlQuery query = prepare(QStringLiteral(
+		// language=sql
+		"update drink_types set icon = :icon where rowid = :rowid"
+	));
+
+	query.bindValue(QStringLiteral(":icon"), icon);
+	query.bindValue(QStringLiteral(":rowid"), rowId);
+
+	return query.exec();
+}
+
 auto Database::exec(const QString &path, const QMap<QString, QVariant> &values) const -> bool
 {
 	QFile file(path);
