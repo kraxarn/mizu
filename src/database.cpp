@@ -92,6 +92,19 @@ bool Database::setDrinkTypeName(const int rowId, const QString &name) const
 	return query.exec();
 }
 
+bool Database::setDrinkTypeImpact(const int rowId, const qreal impact) const
+{
+	QSqlQuery query = prepare(QStringLiteral(
+		// language=sql
+		"update drink_types set impact = :impact where rowid = :rowid"
+	));
+
+	query.bindValue(QStringLiteral(":impact"), impact);
+	query.bindValue(QStringLiteral(":rowid"), rowId);
+
+	return query.exec();
+}
+
 auto Database::exec(const QString &path, const QMap<QString, QVariant> &values) const -> bool
 {
 	QFile file(path);

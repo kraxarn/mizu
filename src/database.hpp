@@ -28,6 +28,8 @@ public:
 
 	Q_INVOKABLE bool setDrinkTypeName(int rowId, const QString &name) const;
 
+	Q_INVOKABLE bool setDrinkTypeImpact(int rowId, qreal impact) const;
+
 private:
 	QSqlDatabase mDb;
 

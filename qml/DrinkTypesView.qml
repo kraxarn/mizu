@@ -60,6 +60,51 @@ Item {
 		}
 	}
 
+	Dialog {
+		id: impactDialog
+		title: "Impact"
+		modal: true
+		standardButtons: Dialog.Ok | Dialog.Cancel
+		width: parent.width * 0.75
+		height: 180
+		x: (parent.width - width) / 2
+		y: (parent.height / 2) - (height / 2)
+		onAccepted: {
+			db.setDrinkTypeImpact(
+				impactDialog.rowId,
+				parseFloat(impact.text.replace(",", "."))
+			)
+		}
+
+		property int rowId: 0
+		property alias impact: impact.text
+
+		TextField {
+			id: impact
+			anchors {
+				left: parent.left
+				right: unit.left
+				rightMargin: 5
+			}
+			validator: DoubleValidator {
+				bottom: 0
+				top: 2
+				decimals: 2
+			}
+		}
+
+		Label {
+			id: unit
+			anchors {
+				right: parent.right
+				bottom: impact.bottom
+				top: impact.top
+			}
+			verticalAlignment: Text.AlignVCenter
+			text: "x"
+		}
+	}
+
 	ListView {
 		anchors.fill: parent
 		model: DrinkTypeModel {
@@ -110,6 +155,11 @@ Item {
 				}
 				flat: true
 				text: `${parent.impact}x`
+				onClicked: {
+					impactDialog.rowId = delegate.rowId
+					impactDialog.impact = delegate.impact
+					impactDialog.open()
+				}
 			}
 
 			Button {
