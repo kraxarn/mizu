@@ -44,4 +44,5 @@ qt_add_resources(${APP_NAME} MDI
 	"${FA_DIR}/solid/house.svg"
 	"${FA_DIR}/solid/list.svg"
 	"${FA_DIR}/solid/rectangle-list.svg"
+	"${FA_DIR}/solid/trash.svg"
 )

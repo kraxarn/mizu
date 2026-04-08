@@ -22,7 +22,44 @@ Item {
 			required property real impact
 
 			width: parent.width
-			text: name
+
+			Button {
+				id: icon
+				anchors {
+					left: parent.left
+				}
+				flat: true
+				icon.source: `qrc:/fa/solid/${parent.iconName}.svg`
+			}
+
+			Label {
+				id: name
+				anchors {
+					left: icon.right
+					top: parent.top
+					bottom: parent.bottom
+				}
+				verticalAlignment: Text.AlignVCenter
+				text: parent.name
+			}
+
+			Button {
+				id: impact
+				anchors {
+					right: remove.left
+				}
+				flat: true
+				text: `${parent.impact}x`
+			}
+
+			Button {
+				id: remove
+				anchors {
+					right: parent.right
+				}
+				flat: true
+				icon.source: "qrc:/fa/solid/trash.svg"
+			}
 		}
 	}
 
