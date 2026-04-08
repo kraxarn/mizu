@@ -20,8 +20,9 @@ public:
 	[[nodiscard]]
 	auto prepare(const QString &query) const -> QSqlQuery;
 
-	[[nodiscard]]
 	Q_INVOKABLE bool insertDrinkType() const;
+
+	Q_INVOKABLE bool deleteDrinkType(int rowId) const;
 
 private:
 	QSqlDatabase mDb;

@@ -21,6 +21,7 @@ qt_add_qml_module(${APP_NAME}
 
 	RESOURCES
 	sql/drink_types_create.sql
+	sql/drink_types_delete.sql
 	sql/drink_types_insert.sql
 	sql/presets_create.sql
 )

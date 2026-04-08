@@ -1,0 +1,1 @@
+delete from drink_types where rowid = :rowId

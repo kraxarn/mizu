@@ -40,7 +40,7 @@ Item {
 					bottom: parent.bottom
 				}
 				verticalAlignment: Text.AlignVCenter
-				text: parent.name
+				text: `${parent.rowId}: ${parent.name}`
 			}
 
 			Button {
@@ -59,6 +59,7 @@ Item {
 				}
 				flat: true
 				icon.source: "qrc:/fa/solid/trash.svg"
+				onClicked: db.deleteDrinkType(parent.rowId)
 			}
 		}
 	}

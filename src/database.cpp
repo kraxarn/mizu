@@ -57,6 +57,15 @@ auto Database::insertDrinkType() const -> bool
 	return exec(QStringLiteral(":/sql/drink_types_insert.sql"), values);
 }
 
+bool Database::deleteDrinkType(int rowId) const
+{
+	const QMap<QString, QVariant> values = {
+		{QStringLiteral(":rowId"), rowId},
+	};
+
+	return exec(QStringLiteral(":/sql/drink_types_delete.sql"), values);
+}
+
 auto Database::exec(const QString &path, const QMap<QString, QVariant> &values) const -> bool
 {
 	QFile file(path);
