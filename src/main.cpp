@@ -4,6 +4,7 @@
 #include <QQuickStyle>
 
 #include "database.hpp"
+#include "drinktypemodel.hpp"
 #include "settings.hpp"
 
 #define registerType(t) qmlRegisterType<t>(#t,1,0,#t)
@@ -26,6 +27,8 @@ namespace
 
 		registerType(Settings);
 		registerType(Database);
+
+		qmlRegisterType<DrinkTypeModel>("Models.DrinkType", 1, 0, "DrinkTypeModel");
 	}
 }
 

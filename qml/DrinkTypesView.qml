@@ -4,10 +4,26 @@ import QtQuick.Controls.Material
 import QtQuick.Layouts
 
 import Database
+import Models.DrinkType
 
 Item {
 	Database {
 		id: db
+	}
+
+	ListView {
+		anchors.fill: parent
+		model: DrinkTypeModel {
+		}
+		delegate: ItemDelegate {
+			required property int rowId
+			required property string iconName
+			required property string name
+			required property real impact
+
+			width: parent.width
+			text: name
+		}
 	}
 
 	RoundButton {

@@ -34,6 +34,18 @@ Database::~Database()
 	mDb.close();
 }
 
+auto Database::exec(const QString &query) const -> QSqlQuery
+{
+	return QSqlQuery(query, mDb);
+}
+
+auto Database::prepare(const QString &query) const -> QSqlQuery
+{
+	QSqlQuery sqlQuery(mDb);
+	sqlQuery.prepare(query);
+	return sqlQuery;
+}
+
 auto Database::insertDrinkType() const -> bool
 {
 	const QMap<QString, QVariant> values = {
@@ -83,6 +95,6 @@ auto Database::exec(const QString &path, const QMap<QString, QVariant> &values) 
 
 auto Database::initDb() const -> bool
 {
-	return exec(QStringLiteral(":/sql/drink_types_create.sql"))
-		&& exec(QStringLiteral(":/sql/presets_create.sql"));
+	return exec(QStringLiteral(":/sql/drink_types_create.sql"), {})
+		&& exec(QStringLiteral(":/sql/presets_create.sql"), {});
 }
