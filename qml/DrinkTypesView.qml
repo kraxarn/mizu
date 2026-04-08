@@ -57,11 +57,6 @@ Item {
 		TextField {
 			id: name
 			width: parent.width
-			validator: DoubleValidator {
-				bottom: 0
-				top: 2
-				decimals: 2
-			}
 		}
 	}
 
