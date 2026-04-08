@@ -73,11 +73,7 @@ auto DrinkTypeModel::data(const QModelIndex &index, const int role) const -> QVa
 	QSqlQuery sqlQuery = mDb.prepare(query);
 	sqlQuery.bindValue(QStringLiteral(":offset"), index.row());
 
-	if (!sqlQuery.next())
-	{
-		qDebug() << sqlQuery.lastError().text();
-		return {};
-	}
-
-	return sqlQuery.value(0);
+	return sqlQuery.exec() && sqlQuery.next()
+		? sqlQuery.value(0)
+		: QVariant();
 }
