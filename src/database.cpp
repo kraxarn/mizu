@@ -79,6 +79,19 @@ auto Database::setDrinkTypeIcon(const int rowId, const QString &icon) const -> b
 	return query.exec();
 }
 
+bool Database::setDrinkTypeName(const int rowId, const QString &name) const
+{
+	QSqlQuery query = prepare(QStringLiteral(
+		// language=sql
+		"update drink_types set name = :name where rowid = :rowid"
+	));
+
+	query.bindValue(QStringLiteral(":name"), name);
+	query.bindValue(QStringLiteral(":rowid"), rowId);
+
+	return query.exec();
+}
+
 auto Database::exec(const QString &path, const QMap<QString, QVariant> &values) const -> bool
 {
 	QFile file(path);

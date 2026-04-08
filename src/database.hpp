@@ -26,6 +26,8 @@ public:
 
 	Q_INVOKABLE bool setDrinkTypeIcon(int rowId, const QString &icon) const;
 
+	Q_INVOKABLE bool setDrinkTypeName(int rowId, const QString &name) const;
+
 private:
 	QSqlDatabase mDb;
 

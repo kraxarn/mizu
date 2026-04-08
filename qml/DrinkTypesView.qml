@@ -21,7 +21,7 @@ Item {
 		x: (parent.width - width) / 2
 		y: (parent.height / 2) - (height / 2)
 
-		property var rowId: 0
+		property int rowId: 0
 
 		ListView {
 			anchors.fill: parent
@@ -38,6 +38,33 @@ Item {
 		}
 	}
 
+	Dialog {
+		id: nameDialog
+		title: "Name"
+		modal: true
+		standardButtons: Dialog.Ok | Dialog.Cancel
+		width: parent.width * 0.75
+		height: 180
+		x: (parent.width - width) / 2
+		y: (parent.height / 2) - (height / 2)
+		onAccepted: {
+			db.setDrinkTypeName(nameDialog.rowId, name.text)
+		}
+
+		property int rowId: 0
+		property alias name: name.text
+
+		TextField {
+			id: name
+			width: parent.width
+			validator: DoubleValidator {
+				bottom: 0
+				top: 2
+				decimals: 2
+			}
+		}
+	}
+
 	ListView {
 		anchors.fill: parent
 		model: DrinkTypeModel {
@@ -48,7 +75,14 @@ Item {
 			required property string name
 			required property real impact
 
+			id: delegate
 			width: parent.width
+
+			onClicked: {
+				nameDialog.rowId = delegate.rowId
+				nameDialog.name = delegate.name
+				nameDialog.open()
+			}
 
 			Button {
 				id: icon
